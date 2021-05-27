@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -19,7 +20,13 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model){
-       model.addAttribute("events", events);
+//       model.addAttribute("events", events);
+//        return "events/index";
+        HashMap<String, String> events = new HashMap<>();
+        events.put("Strangeloop", "A big coding event in STL");
+        events.put("Battle of the Bagels", "Best bagels in town");
+        events.put("Meshuggah", "BYO Pretzels");
+        model.addAttribute("events", events);
         return "events/index";
     }
 
